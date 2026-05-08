@@ -40,8 +40,8 @@ const DoctorList = () => {
       if (!email || !t) { navigate("/login"); return; }
       try {
         const res  = await fetch(
-          `http://localhost:8080/api/users/email/${encodeURIComponent(email)}`,
-          { headers: getAuthHeaders() }
+            `http://queue-project-1.onrender.com/api/users/email/${encodeURIComponent(email)}`,
+            { headers: getAuthHeaders() }
         );
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
@@ -58,7 +58,7 @@ const DoctorList = () => {
     const fetchDoctors = async () => {
       try {
         const res  = await fetch(
-          `http://localhost:8080/api/doctors/${hospitalId}`,
+          `http://queue-project-1.onrender.com/api/doctors/${hospitalId}`,
           { headers: { "Content-Type": "application/json" } }
         );
         if (!res.ok) throw new Error("Failed to fetch doctors");

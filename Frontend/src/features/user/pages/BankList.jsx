@@ -12,7 +12,7 @@ const Banks = () => {
   const categoryId = 2; // BANK category
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/branches/${categoryId}`)
+    fetch(`http://queue-project-1.onrender.com/api/branches/${categoryId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch banks");

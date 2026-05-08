@@ -22,7 +22,7 @@ const QueueStatus = () => {
         if (!userId) { navigate("/login"); return []; }
         try {
             const res = await axios.get(
-                `http://localhost:8080/api/v1/tokens/user/${userId}/active`,
+                `http://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/active`,
                 { headers: getAuthHeaders() }
             );
             return res.data || [];
@@ -44,8 +44,8 @@ const QueueStatus = () => {
                     : `bs-${t.branchServiceId}`;
 
                 const url = t.queueType === "DOCTOR"
-                    ? `http://localhost:8080/api/v1/tokens/doctor/${t.doctorId}/queue-status`
-                    : `http://localhost:8080/api/v1/tokens/branch-service/${t.branchServiceId}/queue-status`;
+                    ? `http://queue-project-1.onrender.com/api/v1/tokens/doctor/${t.doctorId}/queue-status`
+                    : `http://queue-project-1.onrender.com/api/v1/tokens/branch-service/${t.branchServiceId}/queue-status`;
 
                 const res = await axios.get(url, { params: { date: today } });
                 statuses[key] = res.data;

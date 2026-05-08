@@ -346,7 +346,7 @@ const Appointments = () => {
     if (!userId) { navigate("/login"); return; }
     try {
       const res  = await fetch(
-        `http://localhost:8080/api/v1/tokens/user/${userId}/history`,
+        `http://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/history`,
         { headers: getAuthHeaders() }
       );
       const data = res.ok ? await res.json() : [];
@@ -367,7 +367,7 @@ const Appointments = () => {
     setCancelling(tokenId);
     try {
       await fetch(
-        `http://localhost:8080/api/v1/tokens/${tokenId}/cancel?userId=${userId}`,
+        `http://queue-project-1.onrender.com/api/v1/tokens/${tokenId}/cancel?userId=${userId}`,
         { method: "DELETE", headers: getAuthHeaders() }
       );
       await fetchAppointments();

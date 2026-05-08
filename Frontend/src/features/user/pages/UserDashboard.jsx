@@ -60,8 +60,8 @@ const UserDashboard = () => {
     const fetch_ = async () => {
       try {
         const [histRes, activeRes] = await Promise.all([
-          fetch(`http://localhost:8080/api/v1/tokens/user/${userId}/history`, { headers: getAuthHeaders() }),
-          fetch(`http://localhost:8080/api/v1/tokens/user/${userId}/active`,  { headers: getAuthHeaders() })
+          fetch(`http://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/history`, { headers: getAuthHeaders() }),
+          fetch(`http://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/active`,  { headers: getAuthHeaders() })
         ]);
         setTokenHistory(histRes.ok   ? await histRes.json()   : []);
         setActiveTokens(activeRes.ok ? await activeRes.json() : []);
@@ -111,7 +111,7 @@ const UserDashboard = () => {
 
   // ── Fetch categories ───────────────────────────────────
   useEffect(() => {
-    fetch("http://localhost:8080/api/categories", { headers: getAuthHeaders() })
+    fetch("http://queue-project-1.onrender.com/api/categories", { headers: getAuthHeaders() })
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(d => { setServices(d); setLoading(false); })
       .catch(() => { setError("Could not load services."); setLoading(false); });

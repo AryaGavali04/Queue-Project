@@ -35,7 +35,7 @@ const BankServices = () => {
     if (!branchId) return;
     setLoading(true);
     axios
-      .get(`http://localhost:8080/api/branch-services/${branchId}`)
+      .get(`http://queue-project-1.onrender.com/api/branch-services/${branchId}`)
       .then((res) => { setServices(Array.isArray(res.data) ? res.data : []); setLoading(false); })
       .catch(() => { setServices([]); setLoading(false); });
   }, [branchId]);
@@ -97,7 +97,7 @@ const BankServices = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/v1/tokens/book",
+        "http://queue-project-1.onrender.com/api/v1/tokens/book",
         payload,
         { headers: getAuthHeaders() }
       );
@@ -118,7 +118,7 @@ const BankServices = () => {
     if (!bookingResult?.tokenId) return;
     try {
       await axios.delete(
-        `http://localhost:8080/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${userId}`,
+        `http://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${userId}`,
         { headers: getAuthHeaders() }
       );
       closeModal();

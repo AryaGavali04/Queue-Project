@@ -33,7 +33,7 @@ function SignUpPage() {
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await fetch("http://localhost:8080/api/register", {
+        const response = await fetch("http://queue-project-1.onrender.com/api/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

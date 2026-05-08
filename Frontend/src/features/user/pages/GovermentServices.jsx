@@ -35,8 +35,8 @@ const GovernmentServices = () => {
   useEffect(() => {
     if (!officeId) return;
     setLoading(true);
-    fetch(`http://localhost:8080/api/branch-services/${officeId}`)
-      .then((res) => res.json())
+              fetch(`http://queue-project-1.onrender.com/api/branch-services/${officeId}`)
+                .then((res) => res.json())
       .then((data) => { setServices(Array.isArray(data) ? data : []); setLoading(false); })
       .catch((err) => { console.error("Error fetching services:", err); setLoading(false); });
   }, [officeId]);
@@ -98,7 +98,7 @@ const GovernmentServices = () => {
     setBookingResult(null);
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/tokens/book", {
+      const res = await fetch("http://queue-project-1.onrender.com/api/v1/tokens/book", {
         method : "POST",
         headers: getAuthHeaders(),
         body   : JSON.stringify(payload),
@@ -122,7 +122,7 @@ const GovernmentServices = () => {
     if (!bookingResult?.tokenId) return;
     try {
       const res = await fetch(
-        `http://localhost:8080/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${userId}`,
+        `http://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${userId}`,
         { method: "DELETE", headers: getAuthHeaders() }
       );
       if (!res.ok) throw new Error("Cancel failed");
