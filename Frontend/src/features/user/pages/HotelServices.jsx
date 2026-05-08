@@ -35,7 +35,7 @@ const HotelServices = () => {
     if (!hotelId) return;
     setLoading(true);
     axios
-      .get(`http://queue-project-1.onrender.com/api/branch-services/${hotelId}`)
+      .get(`https://queue-project-1.onrender.com/api/branch-services/${hotelId}`)
       .then((res) => { setServices(Array.isArray(res.data) ? res.data : []); setLoading(false); })
       .catch((err) => { console.error("Error fetching services:", err); setServices([]); setLoading(false); });
   }, [hotelId]);
@@ -100,7 +100,7 @@ const HotelServices = () => {
 
     try {
       const res = await axios.post(
-        "http://queue-project-1.onrender.com/api/v1/tokens/book",
+        "https://queue-project-1.onrender.com/api/v1/tokens/book",
         payload,
         { headers: getAuthHeaders() }
       );
@@ -121,7 +121,7 @@ const HotelServices = () => {
     if (!bookingResult?.tokenId) return;
     try {
       await axios.delete(
-        `http://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${userId}`,
+        `https://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${userId}`,
         { headers: getAuthHeaders() }
       );
       closeModal();

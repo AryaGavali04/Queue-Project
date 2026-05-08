@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const BASE_URL            = "http://queue-project-1.onrender.com/api/v1/notifications";
+const BASE_URL            = "https://queue-project-1.onrender.com/api/v1/notifications";
 const BADGE_POLL_INTERVAL = 10000;  // unread count every 10s
 const LIST_POLL_INTERVAL  = 20000;  // full list every 20s
 

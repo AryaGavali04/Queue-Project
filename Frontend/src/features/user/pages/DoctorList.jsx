@@ -40,7 +40,7 @@ const DoctorList = () => {
       if (!email || !t) { navigate("/login"); return; }
       try {
         const res  = await fetch(
-            `http://queue-project-1.onrender.com/api/users/email/${encodeURIComponent(email)}`,
+            `https://queue-project-1.onrender.com/api/users/email/${encodeURIComponent(email)}`,
             { headers: getAuthHeaders() }
         );
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -58,7 +58,7 @@ const DoctorList = () => {
     const fetchDoctors = async () => {
       try {
         const res  = await fetch(
-          `http://queue-project-1.onrender.com/api/doctors/${hospitalId}`,
+          `https://queue-project-1.onrender.com/api/doctors/${hospitalId}`,
           { headers: { "Content-Type": "application/json" } }
         );
         if (!res.ok) throw new Error("Failed to fetch doctors");
@@ -131,7 +131,7 @@ const DoctorList = () => {
 
     try {
       const res = await fetch(
-        "http://queue-project-1.onrender.com/api/v1/tokens/book",
+        "https://queue-project-1.onrender.com/api/v1/tokens/book",
         {
           method : "POST",
           headers: getAuthHeaders(),
@@ -159,7 +159,7 @@ const DoctorList = () => {
     if (!bookingResult?.tokenId) return;
     try {
       const res = await fetch(
-        `http://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${currentUserId}`,
+        `https://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${currentUserId}`,
         { method: "DELETE", headers: getAuthHeaders() }
       );
       if (!res.ok) throw new Error("Cancel failed");

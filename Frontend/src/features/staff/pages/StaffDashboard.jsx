@@ -11,7 +11,7 @@ import StaffSelectorModal from "../components/StaffSelectorModal";
 import StaffStats         from "../components/StaffStats";
 import StaffQueuePanel    from "../components/StaffQueuePanel";
 
-const API = "http://queue-project-1.onrender.com/api/staff";
+const API = "https://queue-project-1.onrender.com/api/staff";
 
 const StaffDashboard = () => {
   const navigate  = useNavigate();

@@ -75,7 +75,7 @@ const usePushNotification = () => {
 async function sendSubscriptionToBackend(subscription, userId, token) {
   const keys = subscription.toJSON().keys || {};
   try {
-    await fetch("http://queue-project-1.onrender.com/api/push/subscribe", {
+    await fetch("https://queue-project-1.onrender.com/api/push/subscribe", {
       method:  "POST",
       headers: {
         "Content-Type": "application/json",

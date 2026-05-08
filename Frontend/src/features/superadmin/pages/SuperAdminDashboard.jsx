@@ -71,7 +71,7 @@ const SuperAdminDashboard = () => {
   const fetchBranches = async () => {
     try {
       const res = await axios.get(
-        "http://queue-project-1.onrender.com/api/super-admin/branches",
+        "https://queue-project-1.onrender.com/api/super-admin/branches",
         { headers: authHeaders }
       );
       const data = Array.isArray(res.data) ? res.data : [];
@@ -85,7 +85,7 @@ const SuperAdminDashboard = () => {
   const fetchAdmins = async () => {
     try {
       const res = await axios.get(
-        "http://queue-project-1.onrender.com/api/super-admin/admins",
+        "https://queue-project-1.onrender.com/api/super-admin/admins",
         { headers: authHeaders }
       );
       const data = Array.isArray(res.data) ? res.data : [];
@@ -99,7 +99,7 @@ const SuperAdminDashboard = () => {
   const fetchUsers = async () => {
     try {
       const res = await axios.get(
-        "http://queue-project-1.onrender.com/api/super-admin/users",
+        "https://queue-project-1.onrender.com/api/super-admin/users",
         { headers: authHeaders }
       );
       const data = Array.isArray(res.data) ? res.data : [];
@@ -125,7 +125,7 @@ const SuperAdminDashboard = () => {
     }
     try {
       await axios.post(
-        "http://queue-project-1.onrender.com/api/super-admin/branches",
+        "https://queue-project-1.onrender.com/api/super-admin/branches",
         branchForm,
         { headers: authHeaders }
       );
@@ -145,7 +145,7 @@ const SuperAdminDashboard = () => {
     try {
       // Step 1: Check if branch has active tokens
       const checkRes = await axios.get(
-        `http://queue-project-1.onrender.com/api/super-admin/branches/${id}/has-active-tokens`,
+        `https://queue-project-1.onrender.com/api/super-admin/branches/${id}/has-active-tokens`,
         { headers: authHeaders }
       );
       const hasActive = checkRes.data.hasActiveTokens;
@@ -159,7 +159,7 @@ const SuperAdminDashboard = () => {
 
       // Step 3: Proceed with delete
       await axios.delete(
-        `http://queue-project-1.onrender.com/api/super-admin/branches/${id}`,
+        `https://queue-project-1.onrender.com/api/super-admin/branches/${id}`,
         { headers: authHeaders }
       );
       showNotification("Branch deleted successfully.");
@@ -186,7 +186,7 @@ const SuperAdminDashboard = () => {
     }
     try {
       await axios.post(
-        "http://queue-project-1.onrender.com/api/super-admin/create-admin",
+        "https://queue-project-1.onrender.com/api/super-admin/create-admin",
         {
           username : adminForm.username,
           email    : adminForm.email,
@@ -211,7 +211,7 @@ const SuperAdminDashboard = () => {
     if (!window.confirm("Are you sure you want to remove this admin?")) return;
     try {
       await axios.delete(
-        `http://queue-project-1.onrender.com/api/super-admin/admins/${id}`,
+        `https://queue-project-1.onrender.com/api/super-admin/admins/${id}`,
         { headers: authHeaders }
       );
       showNotification("Admin removed.");

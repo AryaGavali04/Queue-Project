@@ -13,7 +13,7 @@ import ADStaffPage     from "../components/ADStaffPage";
 import ADQueuePage     from "../components/ADQueuePage";
 import { DoctorModal, ServiceModal, StaffModal } from "../components/ADModals";
 
-const API = "http://queue-project-1.onrender.com/api/admin";
+const API = "https://queue-project-1.onrender.com/api/admin";
 
 const AdminDashboard = () => {
   const navigate    = useNavigate();

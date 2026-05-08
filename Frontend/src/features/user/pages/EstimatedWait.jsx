@@ -24,7 +24,7 @@ const EstimatedWait = () => {
     if (!userId) { navigate("/login"); return; }
     try {
       const activeRes = await axios.get(
-        `http://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/active`,
+        `https://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/active`,
         { headers: getAuthHeaders() }
       );
       const tokens = activeRes.data || [];
@@ -40,8 +40,8 @@ const EstimatedWait = () => {
             : `bs-${t.branchServiceId}`;
 
           const url = t.queueType === "DOCTOR"
-            ? `http://queue-project-1.onrender.com/api/v1/tokens/doctor/${t.doctorId}/queue-status`
-            : `http://queue-project-1.onrender.com/api/v1/tokens/branch-service/${t.branchServiceId}/queue-status`;
+            ? `https://queue-project-1.onrender.com/api/v1/tokens/doctor/${t.doctorId}/queue-status`
+            : `https://queue-project-1.onrender.com/api/v1/tokens/branch-service/${t.branchServiceId}/queue-status`;
 
           const res      = await axios.get(url, { params: { date: today } });
           statuses[key]  = res.data;

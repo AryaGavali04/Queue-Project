@@ -32,7 +32,7 @@ const TicketHistory = () => {
     setLoading(true);
     try {
       const res  = await fetch(
-        `http://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/history`,
+        `https://queue-project-1.onrender.com/api/v1/tokens/user/${userId}/history`,
         { headers: getAuthHeaders() }
       );
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -55,7 +55,7 @@ const TicketHistory = () => {
     setDeleting(tokenId);
     try {
       const res = await fetch(
-        `http://queue-project-1.onrender.com/api/v1/tokens/${tokenId}/history?userId=${userId}`,
+        `https://queue-project-1.onrender.com/api/v1/tokens/${tokenId}/history?userId=${userId}`,
         { method: "DELETE", headers: getAuthHeaders() }
       );
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
