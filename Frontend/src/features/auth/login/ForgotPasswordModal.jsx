@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./ForgotPasswordModal.scss";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
-const API = "http://localhost:8080/api/auth/password-reset";
+const API = "http://queue-project-1.onrender.com/api/auth/password-reset";
 const RESEND_COOLDOWN_SECONDS = 60;
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
