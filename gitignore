@@ -1,0 +1,10 @@
+Set-Content .gitignore @"
+backend/**/application-local.properties
+node_modules/
+frontend/node_modules/
+.env
+.env.local
+frontend/dist/
+frontend/build/
+backend/**/target/
+"@
