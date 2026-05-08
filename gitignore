@@ -1,10 +1,17 @@
+
+New-Item -Name ".gitignore" -ItemType File -Force
 Set-Content .gitignore @"
-backend/**/application-local.properties
-node_modules/
-frontend/node_modules/
+# Backend build output
+Backend/**/target/
+Backend/**/.idea/
+
+# Frontend dependencies
+Frontend/node_modules/
+Frontend/.env.local
+
+# Local config
+Backend/**/application-local.properties
+
+# Environment files
 .env
-.env.local
-frontend/dist/
-frontend/build/
-backend/**/target/
 "@
