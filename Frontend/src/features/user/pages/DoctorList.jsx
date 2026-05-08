@@ -131,7 +131,7 @@ const DoctorList = () => {
 
     try {
       const res = await fetch(
-        "http://localhost:8080/api/v1/tokens/book",
+        "http://queue-project-1.onrender.com/api/v1/tokens/book",
         {
           method : "POST",
           headers: getAuthHeaders(),
@@ -159,7 +159,7 @@ const DoctorList = () => {
     if (!bookingResult?.tokenId) return;
     try {
       const res = await fetch(
-        `http://localhost:8080/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${currentUserId}`,
+        `http://queue-project-1.onrender.com/api/v1/tokens/${bookingResult.tokenId}/cancel?userId=${currentUserId}`,
         { method: "DELETE", headers: getAuthHeaders() }
       );
       if (!res.ok) throw new Error("Cancel failed");
